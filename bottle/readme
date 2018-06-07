@@ -1,0 +1,11 @@
+1. Paste
+
+      @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+in styles.css
+
+2. Paste 
+
+      import 'hammerjs';
+
+in main.ts
