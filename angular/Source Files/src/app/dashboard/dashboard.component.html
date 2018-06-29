@@ -1,0 +1,10 @@
+<app-header></app-header>
+
+<div class="container">
+    <h2>Segment and Parent</h2>
+    <p>List of segmnets and its parents appears here</p>
+    <small>Work in progress though</small>
+    <ul>
+        <li *ngFor = "let segment of segments"> {{segment.name}} - {{segment.parent}} </li>
+    </ul>
+</div>
