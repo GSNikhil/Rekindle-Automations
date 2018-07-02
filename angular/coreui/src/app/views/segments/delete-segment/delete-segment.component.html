@@ -1,0 +1,27 @@
+
+<div class="container">
+  <div class="jumbotron">
+    <h3 class="text-center">Delete a Segment</h3>
+    <form>
+      <div class="form-group">
+        <label for="segmentName">Segment Name</label>
+        <input type="text" class="form-control" id="segmentName" aria-describedby="segmentName" placeholder="Segment Name">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="parentSelect">Parent:</label>
+        </div>
+        <select class="custom-select" id="parentSelect">
+          <option selected>Choose...</option>
+          <option></option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-danger">Delete Segment</button>
+      <button type="button" class="btn btn-secondary pull-right" routerLink = '/segments'>Back</button>
+    </form>
+  </div>
+</div>
+
+
+
+

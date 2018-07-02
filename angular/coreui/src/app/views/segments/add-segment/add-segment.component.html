@@ -1,0 +1,27 @@
+
+<div class="container">
+  <div class="jumbotron">
+    <h3 class="text-center">Add a Segment</h3>
+    <form>
+      <div class="form-group">
+        <label for="segmentName">Segment Name</label>
+        <input type="text" class="form-control" name="segmentName" id="segmentName" aria-describedby="segmentName" placeholder="Segment Name" [(ngModel)] = 'segmentName' >
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="parentSelect">Parent:</label>
+        </div>
+        <select name="parent" class="custom-select" id="parentSelect" [(ngModel)] = "parent" >
+          <option selected>Choose...</option>
+          <option></option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success" (click)="onAddSegment()">Add Segment</button>
+      <button type="button" class="btn btn-secondary pull-right" routerLink = '/segments'>Back</button>
+    </form>
+  </div>
+</div>
+
+
+
+

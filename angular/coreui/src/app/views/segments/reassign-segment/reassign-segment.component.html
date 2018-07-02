@@ -1,0 +1,30 @@
+
+
+<div class="container">
+    <div class="jumbotron">
+      <h3 class="text-center">Reassign Segment</h3>
+      <form>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="segment">Segment:</label>
+            </div>
+            <select class="custom-select" id="segment">
+              <option selected>Choose...</option>
+              <option></option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="parentSelect">Parent:</label>
+          </div>
+          <select class="custom-select" id="parentSelect">
+            <option selected>Choose...</option>
+            <option></option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-warning">Reassign Segment</button>
+        <button type="button" class="btn btn-secondary pull-right" routerLink = '/segments'>Back</button>
+      </form>
+    </div>
+  </div>
