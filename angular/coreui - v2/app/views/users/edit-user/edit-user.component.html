@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="jumbotron">
+      <div class="old">
+        <h4>Edit User from</h4>
+        <form>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="user">User:</label>
+              </div>
+              <select name="oldUserName"
+                      class="custom-select" 
+                      id="user" 
+                      [(ngModel)] = "oldUserName">
+                <option> Choose... </option>
+                <option *ngFor = "let user of users"> {{user.name}} </option>
+              </select>
+          </div>
+  
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="segmentSelect">Segment:</label>
+            </div>
+            <select name="oldSegmentName" 
+                    class="custom-select" 
+                    id="segmentSelect" 
+                    [(ngModel)] = "oldSegmentName">
+              <option selected>Choose...</option>
+              <option *ngFor = "let segment of segments"> {{segment.name}} </option>
+            </select>
+          </div>
+        </form>
+      </div>
+      
+      <div class="new">
+        <h4>To</h4>
+        <form>
+            <div class="form-group">
+                <label for="userName">User Name</label>
+                <input type="text" 
+                        class="form-control" 
+                        name="userName" 
+                        id="userName" 
+                        aria-describedby="userName" 
+                        placeholder="User Name" 
+                        [(ngModel)] = 'userName' >
+              </div>
+  
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="segmentSelect">Segment:</label>
+            </div>
+            <select name="segmentName" class="custom-select" id="segmentSelect" [(ngModel)] = "segment" >
+              <option selected>Choose...</option>
+              <option *ngFor = "let segment of segments"> {{segment.name}} </option>
+              <option></option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-warning" (click)= "onEditUser()">Edit User</button>
+          <button type="button" class="btn btn-secondary pull-right" routerLink = '/users'>Back</button>
+        </form>
+      </div>
+    </div>
+  </div>

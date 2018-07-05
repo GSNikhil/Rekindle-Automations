@@ -1,0 +1,28 @@
+<!-- Add/ Delete Component -->
+<app-buttons></app-buttons>
+<hr>
+<!-- Display components here -->
+
+<data-table [title]="'Segments'" 
+            [items]="items"
+            [itemCount]="itemCount"
+            [indexColumnHeader]="'No'"
+            [pagination] = "false" 
+            (reload)="reloadItems($event)">
+
+    <data-table-column [header]="'Segment Name'" 
+                        property="name" 
+                        [sortable]="true">
+        <ng-template let-item="item">
+        </ng-template>
+    </data-table-column>
+
+    <data-table-column [header]="'Parent Name'" 
+                        property="parent" 
+                        [sortable]="true">
+        <ng-template let-item="item">
+        </ng-template>
+    </data-table-column>
+</data-table>
+
+
