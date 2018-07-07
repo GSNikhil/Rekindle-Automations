@@ -6,10 +6,16 @@
       <form>
         <div class="form-group">
           <label for="flowValue">Number of drops/ml</label>
-          <input type="number" class="form-control" id="flowValue" aria-describedby="flowValue" placeholder="Flow Value - drop/ml">
+          <input type="number" 
+                 class="form-control" 
+                 id="flowValue" 
+                 aria-describedby="flowValue" 
+                 placeholder="Flow Value - drop/ml"
+                 name="flowValue"
+                 [(ngModel)] = "flowValue">
         </div>
-        <button type="submit" class="btn btn-info">Change</button>
-        <button type="button" class="btn btn-secondary pull-right" routerLink = '/segments'>Back</button>
+        <button type="submit" class="btn btn-info" (click) = "onChange()">Change</button>
+        <button type="button" class="btn btn-secondary pull-right"  routerLink = '/segments'>Back</button>
       </form>
     </div>
   </div>

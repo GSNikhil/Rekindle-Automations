@@ -50,10 +50,10 @@ export const routes: Routes = [
       title: 'Home'
     },
     children: [
-      {
-        path: 'base',
-        loadChildren: './views/base/base.module#BaseModule'
-      },
+      // {
+      //   path: 'base',
+      //   loadChildren: './views/base/base.module#BaseModule'
+      // },
       {
         path: 'buttons',
         loadChildren: './views/buttons/buttons.module#ButtonsModule'

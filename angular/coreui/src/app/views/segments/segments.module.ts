@@ -12,6 +12,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
 
 // Theme Routing
 import { SegmentsRoutingModule } from './segments-routing.module';
+import { DataTableModule } from 'angular5-data-table';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SegmentsRoutingModule } from './segments-routing.module';
     CommonModule,
     SegmentsRoutingModule,
     FormsModule,
+    DataTableModule.forRoot()
    
   ],
   declarations: [
@@ -31,14 +33,11 @@ import { SegmentsRoutingModule } from './segments-routing.module';
   ]
 })
 export class SegmentsModule {
-  segmentName: string;
-  parent: string;
+  
 
   constructor() { }
 
  
-  // onAddSegment(){
-  //   this.data.addSegment(this.segmentName, this.parent);
-  // }
+  
 
  }

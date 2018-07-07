@@ -1,6 +1,6 @@
 export class Segment{
 
-    constructor(public name: string, public parent: string){
+    constructor(public name: any, public parent: any){
         
     }
 }

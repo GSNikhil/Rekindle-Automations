@@ -13,7 +13,7 @@
         </div>
         <select name="parent" class="custom-select" id="parentSelect" [(ngModel)] = "parent" >
           <option selected>Choose...</option>
-          <option></option>
+          <option *ngFor = 'let segment of segments'>{{segment.name}}</option>
         </select>
       </div>
       <button type="submit" class="btn btn-success" (click)="onAddSegment()">Add Segment</button>
