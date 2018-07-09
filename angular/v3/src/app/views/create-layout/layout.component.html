@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="jumbotron" style="margin: auto auto;">
+        <h1>Create Layout</h1>
+        <hr>
+        <div class="div">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">Hospital Name:</label>
+                </div>
+                <input type="text" class="form-control" name="hospitalName" #hospitalName> 
+                <button class="btn btn-success pull-right" type="submit" (click) = "createHospital(hospitalName.value)">Create Hospital</button>
+            </div>    
+           
+        </div>
+
+        <hr>
+        <div class="div">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">Wings:</label>
+                </div>
+                <input type="number" class="form-control" name="nosWings" id="wings" #noOfWings> 
+                <button class="btn btn-success pull-right" (click) = "createWings(noOfWings.value)">Create Wings</button>
+            </div>    
+            
+        </div>
+
+        <hr>
+        <div class="div" *ngFor = "let n of floorsInWing; let i = index ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">Floors in Wing {{ i + 1 }}:</label>
+                </div>
+                <input type="number" class="form-control" name="FloorsInWing{{i}}" #floors> 
+                <button class="btn btn-success pull-right" (click) = "addFloors(floors.value)">Create Floors</button>
+            </div>    
+        </div>
+           
+    </div>
+</div>
