@@ -9,6 +9,7 @@ import { DeleteSegmentComponent } from './delete-segment/delete-segment.componen
 import { ReassignSegmentComponent } from './reassign-segment/reassign-segment.component';
 import { FlowCalculationsComponent } from './flow-calculations/flow-calculations.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { CreateLayoutComponent } from './create-layout/layout.component';
 
 // Theme Routing
 import { SegmentsRoutingModule } from './segments-routing.module';
@@ -31,7 +32,8 @@ import { DataService } from '../../services/data.service';
     DeleteSegmentComponent,
     ButtonsComponent,
     ReassignSegmentComponent,
-    FlowCalculationsComponent
+    FlowCalculationsComponent,
+    CreateLayoutComponent
   ],
   providers: [
     DataService

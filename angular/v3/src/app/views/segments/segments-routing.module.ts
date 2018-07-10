@@ -5,6 +5,7 @@ import { AddSegmentComponent } from './add-segment/add-segment.component';
 import { DeleteSegmentComponent } from './delete-segment/delete-segment.component';
 import { ReassignSegmentComponent } from './reassign-segment/reassign-segment.component';
 import { FlowCalculationsComponent } from './flow-calculations/flow-calculations.component';
+import { CreateLayoutComponent } from './create-layout/layout.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,13 @@ const routes: Routes = [
   {
     path: 'flow-calc',
     component: FlowCalculationsComponent,
+    data: {
+      title: 'Flow Calculations'
+    }
+  },
+  {
+    path: 'segment-data',
+    component: CreateLayoutComponent,
     data: {
       title: 'Flow Calculations'
     }

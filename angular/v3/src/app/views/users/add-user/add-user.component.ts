@@ -19,16 +19,12 @@ export class AddUserComponent implements OnInit{
     }
 
     ngOnInit(){
-        
+        this.segments = this.data.segments;
     }
 
     onAddUser()
     {
-        this.data.addUser(this.userName, this.segment)
-        // .subscribe(
-        //     (response) => console.log(response),
-        //     (error) => console.log(error)
-        // );
+        this.data.addUser(this.userName, this.segment);
     }
 }
 

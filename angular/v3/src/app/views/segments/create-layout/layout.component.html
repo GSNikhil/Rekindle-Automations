@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="jumbotron" style="margin: auto auto;">
+        <h1 class="text-center">Create Segment Data</h1>
+        <hr>
+        <div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">Hospital Name:</label>
+                </div>
+                <input type="text" class="form-control" name="hospitalName" [(ngModel)] = "hospitalName" [disabled] = "isDisabled()"> 
+                <button class="btn pull-right {{isDisabled() ? 'btn-danger' : 'btn-success'}}"
+                        (click) = "createHospital(hospitalName.value)"> 
+                         {{isDisabled() ? "Edit" : "Create Hospital" }}      </button>
+            </div>       
+        </div>
+        <br><br>
+        
+        <h3>Create:</h3>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="parentSelect">Segment Type</label>
+            </div>
+            <select name="parent" class="custom-select" id="parentSelect" [(ngModel)] = "segmentType" required>
+              <option *ngFor = 'let segmentType of segmentTypes'>{{ segmentType }}</option>
+            </select>
+        </div>
+
+        <div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">{{segmentType}} Name/Number:</label>
+                </div>
+                <input type="text" class="form-control" name="segmentName" [(ngModel)] = "segmentName" required> 
+            </div>       
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="parentSelect">Parent</label>
+            </div>
+            <select name="parent" class="custom-select" id="parentSelect" [(ngModel)] = "parent" required>
+                <!-- <option> - </option> -->
+              <option *ngFor = 'let segment of segments'>{{ segment.name }} , {{ segment.parent }}</option>
+            </select>
+        </div>
+
+        <div class="alert alert-success" role="alert" [hidden] = "hidden">
+                Segment Created.
+        </div>
+
+        <button class="btn btn-success btn-block" (click) = "onCreate()" type="submit">Create</button>
+        <button class="btn btn-danger pull-right" routerLink = "/segments">Back</button>
+        
+
+    </div>
+</div>

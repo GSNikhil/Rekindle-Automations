@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Bottle } from '../../shared/bottle.model';
 // import {MatButtonModule, MatCheckboxModule, MatSlider} from '@angular/material';
 
 @Component({
@@ -7,16 +8,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bottle.component.css']
 })
 
-export class BottleComponent implements OnInit {
+export class BottleComponent implements OnInit, OnChanges {
 
   // public value = matSlider.value;
   public color = "pink";
   public emptyHeight = "50%";
   public fillHeight = "50%";
   public vol = 0;
+  @Input() volRemaining: number;
+  @Input() bottle: Bottle;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(){
+    this.vol = 100 - this.bottle.volRemaining;
+    this.fillHeight = this.bottle.volRemaining + "%";
+    this.emptyHeight = this.vol + "%";
+
+    console.log("Hey there!", this.bottle.volRemaining);
+    if(this.bottle.volRemaining >= 50)
+        this.color = "green";
+    else if(this.bottle.volRemaining >= 20 && this.bottle.volRemaining < 50)
+      this.color = "yellow";
+    else
+      this.color = "red";
+
   }
 
   log(volRemaining){
