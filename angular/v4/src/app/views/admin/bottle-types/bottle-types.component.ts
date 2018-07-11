@@ -4,7 +4,6 @@ import { DataService } from '../../../services/data.service';
 import { DataTableResource } from 'angular5-data-table';
 
 @Component({
-  selector: 'app-bottle-types',
   templateUrl: './bottle-types.component.html',
   // styleUrls: ['./bottle-types.component.css']
 })

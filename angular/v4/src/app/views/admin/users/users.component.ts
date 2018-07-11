@@ -7,9 +7,7 @@ import { User } from '../../../shared/user.model';
 import { Segment } from '../../../shared/segment.model';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  templateUrl: './users.component.html'
 })
 export class UsersComponent implements OnInit {
 

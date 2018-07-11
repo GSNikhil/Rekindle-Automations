@@ -6,9 +6,7 @@ import { BottleType } from '../../shared/bottleType.model';
 import { Segment } from '../../shared/segment.model';
 
 @Component({
-  selector: 'app-bottle-mapping',
-  templateUrl: './bottle-mapping.component.html',
-  styleUrls: ['./bottle-mapping.component.scss']
+  templateUrl: './bottle-mapping.component.html'
 })
 export class BottleMappingComponent implements OnInit {
 

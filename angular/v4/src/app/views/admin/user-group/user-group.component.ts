@@ -5,9 +5,7 @@ import { DataTableResource } from 'angular5-data-table';
 import { UserGroup } from '../../../shared/userGroup.model'
 
 @Component({
-  selector: 'app-user-group',
-  templateUrl: './user-group.component.html',
-  styleUrls: ['./user-group.component.css']
+  templateUrl: './user-group.component.html'
 })
 export class UserGroupComponent implements OnInit {
 

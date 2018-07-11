@@ -5,9 +5,7 @@ import { SegmentType } from '../../../shared/segmentType.model';
 import { Segment } from '../../../shared/segment.model';
 
 @Component({
-  selector: 'app-segments',
-  templateUrl: './segments.component.html',
-  styleUrls: ['./segments.component.css']
+  templateUrl: './segments.component.html'
 })
 export class SegmentsComponent implements OnInit {
 
@@ -81,8 +79,6 @@ export class SegmentsComponent implements OnInit {
     return this.data.segments[idx].sg_code === this.selectedItem.st_code && 
     this.data.segments[idx].sg_name === this.selectedItem.st_name && 
     this.data.segments[idx].sg_parent === this.selectedItem.st_parent;
-    // &&
-    // this.data.segments[idx].sg_type === this.selectedItem.st_type;
  }
 }
 

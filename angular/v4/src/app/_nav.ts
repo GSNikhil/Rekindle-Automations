@@ -4,16 +4,6 @@ export const navItems = [
     url: '/dashboard',
     icon: 'icon-speedometer'
   },
-  // {
-  //   name: 'Segments',
-  //   url: '/segments',
-  //   icon: 'icon-grid'
-  // },
-  // {
-  //   name: 'Users',
-  //   url: '/users',
-  //   icon: 'icon-user'
-  // },
   {
       name: 'Admin',
       url: '/admin',
@@ -53,12 +43,12 @@ export const navItems = [
           name: 'Device',
           url: '/admin/device',
           icon: 'icon-compass'
-        },
+        }
       ]
     },
     {
       name: 'Bottle Mapping',
       url: '/bottle-map',
       icon: 'icon-cursor',
-    },
+    }
 ];

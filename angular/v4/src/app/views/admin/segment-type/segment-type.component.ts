@@ -5,9 +5,7 @@ import { DataTableResource } from 'angular5-data-table';
 import { SegmentType } from '../../../shared/segmentType.model';
 
 @Component({
-  selector: 'app-segment-type',
-  templateUrl: './segment-type.component.html',
-  styleUrls: ['./segment-type.component.css']
+  templateUrl: './segment-type.component.html'
 })
 export class SegmentTypeComponent implements OnInit {
 

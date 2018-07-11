@@ -6,8 +6,7 @@ import { BottleType } from '../../../shared/bottleType.model';
 import { Segment } from '../../../shared/segment.model';
 
 @Component({
-  templateUrl: './bottle.component.html',
-  styleUrls: ['./bottle.component.scss']
+  templateUrl: './bottle.component.html'
 })
 export class BottleComponent implements OnInit {
 
@@ -65,13 +64,13 @@ export class BottleComponent implements OnInit {
           {
             this.data.bottles.splice(i, 1);
             this.bottleExists = true;
-            this.data.bottles.push(new Bottle(this.btl_code, this.btl_name, this.btl_segment, this.btl_type));
+            this.data.bottles.push(new Bottle(this.btl_code, this.btl_name, this.btl_segment, this.btl_type, 21));
             break;
           }
       }
     }
     else{
-      this.data.bottles.push(new Bottle(this.btl_code, this.btl_name, this.btl_segment, this.btl_type));
+      this.data.bottles.push(new Bottle(this.btl_code, this.btl_name, this.btl_segment, this.btl_type, 22));
     }
   }
 

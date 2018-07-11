@@ -69,7 +69,7 @@ export const routes: Routes = [
       {
         path: 'bottle-map',
         loadChildren: './views/bottle-mapping/bottle-mapping.module#BottleMappingModule'
-      },
+      }
     ]
   }
 ];
