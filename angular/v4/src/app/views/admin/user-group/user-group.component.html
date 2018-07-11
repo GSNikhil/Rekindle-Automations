@@ -1,0 +1,65 @@
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-list"></i> <strong>List of User Groups </strong> 
+        <button class="btn btn-info pull-right" (click) = "onAdd()">Add User Group</button>
+    </div>
+   
+    <div class="card-body">
+        
+        <data-table [title]="'User Group'" 
+        [items]="items"
+        [itemCount]="itemCount"
+        [pagination] = "false" 
+        (reload)="reloadItems($event)">
+
+<data-table-column [header]="'User Group Code'" 
+                    property="gp_code" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'User Group Name'" 
+                    property="gp_name" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+    <data-table-column [header]="'Action'">
+        <ng-template #dataTableCell let-item="item">
+            <button class="btn btn-sm btn-warning" (click) = "onEdit(item)"><i class="far fa-edit" style="color: #fff"></i></button> 
+            <button class="btn btn-sm btn-danger" (click) = "onDelete()"><i class="far fa-trash-alt"></i></button>
+          </ng-template>
+      
+    </data-table-column>
+</data-table>
+
+    </div>
+</div>
+
+<div class="card border-{{edit ? 'warning' : 'info'}}" style="max-width: 36rem;">
+  <div class="card-header">
+    <i class="far fa-edit"></i> {{edit ? "Edit" : "Add"}} User Group
+  </div>
+  <div class="card-body">
+      <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="gp-code">User Group Code:</label>
+            </div>
+           <input type="text" id="gp-code" name="gp-code" class="form-control" [(ngModel)] = 'gp_code'>
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="st-name">User Group Name:</label>
+              </div>
+             <input type="text" id="st-name" name="st-name" class="form-control" [(ngModel)] = 'gp_name' >
+          </div>
+
+          <button type="submit" class="btn btn-{{edit ? 'warning' : 'info'}}" (click)="onAddGroup()">{{edit ? 'Edit' : 'Add'}}</button>
+          <button type="button" class="btn btn-secondary pull-right" routerLink = '/segments'>Back</button>
+        </form>
+  </div>
+</div>
