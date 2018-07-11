@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="jumbotron">
+      <div class="old">
+        <h4>Reassign Segment from</h4>
+        <form>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="segment">Segment:</label>
+              </div>
+              <select name="oldSegmentName" class="custom-select" id="segment" [(ngModel)] = "oldSegmentName">
+                <option> Choose... </option>
+                <option *ngFor = "let segment of segments"> {{segment.name}} </option>
+              </select>
+          </div>
+  
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="parentSelect">Parent:</label>
+            </div>
+            <select name="oldParentName" class="custom-select" id="parentSelect" [(ngModel)] = "oldParentName">
+              <option selected>Choose...</option>
+              <option *ngFor = "let segment of segments"> {{segment.name}} </option>
+            </select>
+          </div>
+        </form>
+      </div>
+      
+      <div class="new">
+        <h4>To</h4>
+        <form>
+            <div class="form-group">
+                <label for="segmentName">Segment Name</label>
+                <input type="text" class="form-control" name="segmentName" id="segmentName" aria-describedby="segmentName" placeholder="Segment Name" [(ngModel)] = 'segmentName' >
+              </div>
+  
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="parentSelect">Parent:</label>
+            </div>
+            <select name="parentName" class="custom-select" id="parentSelect" [(ngModel)] = "parent" >
+              <option selected>Choose...</option>
+              <option *ngFor = "let segment of segments"> {{segment.name}} </option>
+              <option></option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-warning" (click)= "onReassignSegment()">Reassign Segment</button>
+          <button type="button" class="btn btn-secondary pull-right" routerLink = '/segments'>Back</button>
+        </form>
+      </div>
+    </div>
+  </div>

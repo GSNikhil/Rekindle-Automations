@@ -1,0 +1,19 @@
+.grid{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-auto-rows: 350px;
+    grid-gap: 0.3%;
+    grid-row-gap: 8px;
+}
+
+.grid-element{
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.details{
+    background-color: #f0f3f5;
+    padding: 0.4rem;
+    border-radius: 5px;
+}
+

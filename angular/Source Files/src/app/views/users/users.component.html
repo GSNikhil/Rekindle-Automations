@@ -1,0 +1,25 @@
+<app-buttons></app-buttons>
+
+<hr>
+
+<data-table [title]="'Users'" 
+            [items]="items"
+            [itemCount]="itemCount"
+            [pagination] = "false"
+            [indexColumnHeader]="'No'" 
+            (reload)="reloadItems($event)">
+
+    <data-table-column [header]="'User Name'" 
+                        property="name" 
+                        [sortable]="true">
+        <ng-template let-item="item">
+        </ng-template>
+    </data-table-column>
+
+    <data-table-column [header]="'Segment Assigned'" 
+                        property="segment" 
+                        [sortable]="true">
+        <ng-template let-item="item">
+        </ng-template>
+    </data-table-column>
+</data-table>
