@@ -1,0 +1,28 @@
+<h1 class="text-center">Bottles</h1>
+<hr>
+
+<div class="card">
+    <h3 class="card-header">Select a Segment</h3>
+    <div class="card-body">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="segment">Segment:</label>
+                </div>
+                <select name="parent" class="custom-select" id="segment" [(ngModel)] = "segment" >
+                    <option selected>Choose...</option>
+                    <option *ngFor = 'let segment of segments'>{{segment.sg_name}}</option>
+                </select>
+            </div>
+    </div>
+    
+</div>
+
+<div class="grid">
+    <div class="grid-element" *ngFor = "let bottle of bottles">
+        <div class="details">
+                <p>Name: <strong> {{bottle.name}} </strong> </p>
+                <p>Vol Remaining: <strong> {{bottle.volRemaining}}  </strong></p>
+        </div>
+        <app-bottle [bottle] = "bottle"></app-bottle>
+    </div>  
+</div>

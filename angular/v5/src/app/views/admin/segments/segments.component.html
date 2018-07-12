@@ -1,0 +1,102 @@
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-list"></i> <strong>List of Segments</strong> 
+        <a href="#add-edit"><button class="btn btn-info pull-right" (click) = "onAdd()">Add Segment Type</button></a>
+        
+    </div>
+   
+    <div class="card-body">
+        
+        <data-table [title]="'Segments'" 
+        [pageLimits]="limits"
+        [items]="items"
+        [itemCount]="itemCount"
+        [pagination] = "true" 
+        (reload)="reloadItems($event)">
+
+<data-table-column [header]="'Code'" 
+                    property="sg_code" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'Name'" 
+                    property="sg_name" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'Parent'" 
+                    property="sg_parent" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'Type'" 
+                    property="sg_type" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+    <data-table-column [header]="'Action'">
+        <ng-template #dataTableCell let-item="item">
+            <a href="#add-edit"><button class="btn btn-sm btn-warning" (click) = "onEdit(item)"><i class="far fa-edit" style="color: #fff"></i></button></a>
+             
+            <button class="btn btn-sm btn-danger" (click) = "onDelete()"><i class="far fa-trash-alt"></i></button>
+          </ng-template>
+      
+    </data-table-column>
+</data-table>
+
+    </div>
+</div>
+
+<div class="card border-{{edit ? 'warning' : 'info'}}" style="max-width: 36rem;" id="add-edit">
+  <div class="card-header">
+    <i class="far fa-edit"></i> {{edit ? "Edit" : "Add"}} Segment
+  </div>
+  <div class="card-body">
+      <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="st-code">Segment Code:</label>
+            </div>
+           <input type="text" id="st-code" name="st-code" class="form-control" [(ngModel)] = 'sg_code'>
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="st-name">Segment Name:</label>
+              </div>
+             <input type="text" id="st-name" name="st-name" class="form-control" [(ngModel)] = 'sg_name' >
+          </div>
+
+           <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="st-parent">Segment Parent:</label>
+                </div>
+                <select name="st-parent" class="custom-select" id="st-parent" [(ngModel)] = "sg_parent" >
+                    <option selected>Choose...</option>
+                    <option *ngFor = 'let type of types'>{{type}}</option>
+                </select>
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="st-type">Segment Type:</label>
+              </div>
+              <select name="st-type" class="custom-select" id="st-type" [(ngModel)] = "sg_type" >
+                  <option selected>Choose...</option>
+                  <option *ngFor = 'let segmentType of segmentTypes'>{{segmentType.st_name}}</option>
+              </select>
+        </div>
+
+          <button type="submit" class="btn btn-{{edit ? 'warning' : 'info'}}" (click)="onAddSegment()">{{edit ? 'Edit' : 'Add'}}</button>
+          <button type="button" class="btn btn-secondary pull-right" routerLink = '/segments'>Back</button>
+        </form>
+  </div>
+</div>

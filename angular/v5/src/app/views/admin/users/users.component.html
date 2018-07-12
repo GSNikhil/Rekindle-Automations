@@ -1,0 +1,103 @@
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-list"></i> <strong>List of Users </strong> 
+        <a href="#add-edit"><button class="btn btn-info pull-right" (click) = "onAddUser()">Add User</button></a>
+        
+    </div>
+   
+    <div class="card-body">
+        
+        <data-table [title]="'Users'" 
+        [pageLimits]="limits"
+        [items]="items"
+        [itemCount]="itemCount"
+        [pagination] = "true" 
+        [autoReload] = "true"
+        (reload)="reloadItems($event)">
+
+<data-table-column [header]="'User Code'" 
+                    property="usr_code" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'User Name'" 
+                    property="usr_name" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'User Group'" 
+                    property="usr_group" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'Segment Access'" 
+                    property="usr_segment" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+    <data-table-column [header]="'Action'">
+        <ng-template #dataTableCell let-item="item">
+            <a href="#add-edit"><button class="btn btn-sm btn-warning" (click) = "onEdit(item)"><i class="far fa-edit" style="color: #fff"></i></button> </a>
+            
+            <button class="btn btn-sm btn-danger" (click) = "onDelete()"><i class="far fa-trash-alt"></i></button>
+          </ng-template>
+      
+    </data-table-column>
+</data-table>
+
+    </div>
+</div>
+
+<div class="card border-{{edit ? 'warning' : 'info'}}" style="max-width: 36rem;" id="add-edit">
+  <div class="card-header">
+    <i class="far fa-edit"></i> {{edit ? "Edit" : "Add"}} User
+  </div>
+  <div class="card-body">
+      <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="st-code">User Code:</label>
+            </div>
+           <input type="text" id="usr-code" name="usr-code" class="form-control" [(ngModel)] = 'usr_code'>
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="usr-name">User Name:</label>
+              </div>
+             <input type="text" id="usr-name" name="usr-name" class="form-control" [(ngModel)] = 'usr_name' >
+          </div>
+
+           <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="usr-group">User Group:</label>
+                </div>
+                <select name="usr-group" class="custom-select" id="usr-group" [(ngModel)] = "usr_group" >
+                    <option selected>Choose...</option>
+                    <option *ngFor = 'let group of groups'>{{group.gp_name}}</option>
+                </select>
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="usr-group">Segment Access:</label>
+              </div>
+              <select name="usr-segment" class="custom-select" id="usr-segment" [(ngModel)] = "usr_segment" >
+                  <option selected>Choose...</option>
+                  <option *ngFor = 'let segment of segments'>{{segment.sg_name}}</option>
+              </select>
+        </div>
+
+          <button type="submit" class="btn btn-{{edit ? 'warning' : 'info'}}" (click)="onAddSegmentType()">{{edit ? 'Edit' : 'Add'}}</button>
+          <button type="button" class="btn btn-secondary pull-right" routerLink = '/segments'>Back</button>
+        </form>
+  </div>
+</div>

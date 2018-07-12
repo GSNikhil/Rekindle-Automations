@@ -1,0 +1,106 @@
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-list"></i> <strong>List of Bottles</strong> 
+        <a href="#add-edit"><button class="btn btn-info pull-right" (click) = "onAdd()">Add Bottle</button></a>
+        
+    </div>
+   
+    <div class="card-body">
+        
+        <data-table [title]="'Bottles'" 
+        [pageLimits]="limits"
+        [items]="items"
+        [itemCount]="itemCount"
+        [pagination] = "true" 
+        (reload)="reloadItems($event)">
+
+<data-table-column [header]="'Bottle Code'" 
+                    property="btl_code" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'Bottle Name'" 
+                    property="btl_name" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'Segment'" 
+                    property="btl_segment" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'Bottle Type'" 
+                    property="btl_type" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+    <data-table-column [header]="'Action'">
+        <ng-template #dataTableCell let-item="item">
+            <a href="#add-edit"><button class="btn btn-sm btn-warning" (click) = "onEdit(item)"><i class="far fa-edit" style="color: #fff"></i></button></a>
+             
+            <button class="btn btn-sm btn-danger" (click) = "onDelete()"><i class="far fa-trash-alt"></i></button>
+          </ng-template>
+      
+    </data-table-column>
+</data-table>
+
+    </div>
+</div>
+
+<div class="card border-{{edit ? 'warning' : 'info'}}" style="max-width: 36rem;" id="add-edit">
+  <div class="card-header">
+    <i class="far fa-edit"></i> {{edit ? "Edit" : "Add"}} Bottle 
+  </div>
+  <div class="card-body">
+      <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="btl-code">Bottle Code:</label>
+            </div>
+           <input type="text" id="btl-code" name="btl-code" class="form-control" [(ngModel)] = 'btl_code'>
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="btl-name">Bottle Name:</label>
+              </div>
+             <input type="text" id="btl-name" name="btl-name" class="form-control" [(ngModel)] = 'btl_name' >
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="btl_segment">Segment:</label>
+              </div>
+              <select name="btl_segment" class="custom-select" id="btl_segment" [(ngModel)] = "btl_segment" >
+                  <option selected>Choose...</option>
+                  <option *ngFor = 'let segment of segments'>{{segment.sg_name}}</option>
+              </select>
+        </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="btl_type">Bottle Type:</label>
+              </div>
+              <select name="btl_type" class="custom-select" id="btl_type" [(ngModel)] = "btl_type" >
+                  <option selected>Choose...</option>
+                  <option *ngFor = 'let type of types'>{{type.btl_qty}}</option>
+              </select>
+        </div>
+
+          
+
+           
+
+          <button type="submit" class="btn btn-{{edit ? 'warning' : 'info'}}" (click)="onAddBottleType()">{{edit ? 'Edit' : 'Add'}}</button>
+          <button type="button" class="btn btn-secondary pull-right" routerLink = '/segments'>Back</button>
+        </form>
+  </div>
+</div>

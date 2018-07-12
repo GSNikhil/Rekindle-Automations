@@ -1,0 +1,119 @@
+<div class="card" id="table">
+    <div class="card-header">
+        <i class="fas fa-list"></i> <strong>Bottle Mapping </strong> 
+        <a href="#add-edit"><button class="btn btn-info pull-right" (click) = "onAdd()">Create Map</button></a>
+        
+    </div>
+   
+    <div class="card-body">
+        
+        <data-table [title]="'Segment Map'" 
+        [items]="items"
+        [itemCount]="itemCount"
+        [pagination] = "true" 
+        (reload)="reloadItems($event)">
+
+<data-table-column [header]="'Segment Name'" 
+                    property="sg_name" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'Device'" 
+                    property="device" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'Bottle Flow Rate'" 
+                    property="btl_flow" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+<data-table-column [header]="'Bottle Quantity'" 
+                    property="btl_qty" 
+                    [sortable]="true">
+    <ng-template let-item="item">
+    </ng-template>
+</data-table-column>
+
+    <data-table-column [header]="'Action'">
+        <ng-template #dataTableCell let-item="item">
+            <a href="#add-edit"><button class="btn btn-sm btn-warning" (click) = "onEdit(item)"><i class="far fa-edit" style="color: #fff"></i></button></a>
+             
+            <button class="btn btn-sm btn-danger" (click) = "onDelete()"><i class="far fa-trash-alt"></i></button>
+          </ng-template>
+      
+    </data-table-column>
+</data-table>
+
+    </div>
+</div>
+
+<div class="card border-{{edit ? 'warning' : 'info'}}" style="max-width: 36rem;"  id="add-edit">
+  <div class="card-header">
+    <i class="far fa-edit"></i> {{edit ? "Edit" : "Add"}} Segment Map
+  </div>
+  <div class="card-body">
+      <form>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="sg_name">Segment Name:</label>
+              </div>
+              <select name="sg_name" class="custom-select" id="sg_name" [(ngModel)] = "sg_name" >
+                  <option selected>Choose...</option>
+                  <option *ngFor = 'let segment of segments'>{{segment.sg_name}}</option>
+              </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="device">Device:</label>
+            </div>
+            <select name="device" class="custom-select" id="device" [(ngModel)] = "device" >
+                <option selected>Choose...</option>
+                <option *ngFor = 'let device of devices'>{{ device }}</option>
+            </select>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          Bottle
+        </div>
+        <div class="card-body">
+                <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="device">Bottle Code:</label>
+                        </div>
+                        <select name="device" class="custom-select" id="device" [(ngModel)] = "device">
+                            <option selected>Choose...</option>
+                            <option *ngFor = 'let bottle of bottles'>{{ bottle.btl_code }}</option>
+                        </select>
+                        <button class="btn btn-info" (click)="onConfirm()">Confirm</button>
+                  </div>
+
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="btl-flow">Flow Rate:</label>
+                  </div>
+                 <input type="text" id="btl-flow" name="btl-flow" class="form-control" [(ngModel)] = 'btl_flow' disabled>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="btl-qty">Quantity:</label>
+                    </div>
+                   <input type="text" id="btl-qty" name="btl-qty" class="form-control" [(ngModel)] = 'btl_qty' disabled>
+                  </div>
+        </div>
+      </div>       
+            <button type="submit" class="btn btn-{{edit ? 'warning' : 'info'}}" (click)="onAddBottleType()">{{edit ? 'Edit' : 'Add'}}</button>
+          
+          <button type="button" class="btn btn-secondary pull-right" routerLink = '/segments'>Back</button>
+        </form>
+  </div>
+</div>
